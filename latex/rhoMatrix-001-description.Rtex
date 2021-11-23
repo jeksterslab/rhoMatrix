@@ -1,0 +1,55 @@
+\documentclass{article}
+
+\input{latex/preamble/preamble}
+
+\title{rhoMatrix: Correlation Matrix}
+\author{Ivan Jacob Agaloos Pesigan}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+<<echo=FALSE>>=
+root <- rprojroot::is_rstudio_project
+source(
+  root$find_file(
+    "latex",
+    "R_scripts",
+    "start.R"
+  )
+)
+@
+
+\section*{Description}
+
+A collection of functions
+related to the correlation matrix
+$
+\mathbf{P}
+$.
+
+\section*{Installation}
+
+You can install the released version of
+\texttt{rhoMatrix}
+from
+\href{https://github.com/jeksterslab/rhoMatrix}{GitHub}
+with:
+
+<<eval = FALSE>>=
+install.packages("remotes")
+remotes::install_github("jeksterslab/rhoMatrix")
+@
+
+\section*{More Information}
+
+See
+\href{https://jeksterslab.github.io/rhoMatrix/index.html}{GitHub Pages}
+for package documentation.
+
+\nocite{R-2021}
+
+\printbibliography
+
+\end{document}

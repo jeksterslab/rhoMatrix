@@ -1,0 +1,129 @@
+\documentclass{article}
+
+\input{latex/preamble/preamble}
+
+\title{Covariance Matrix from Correlation Matrix}
+\author{Ivan Jacob Agaloos Pesigan}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+<<echo=FALSE>>=
+root <- rprojroot::is_rstudio_project
+source(
+  root$find_file(
+    "latex",
+    "R_scripts",
+    "start.R"
+  )
+)
+@
+
+\section*{Scalar Notation}
+
+\input{latex/equations/rhoMatrix-covariance-of-correlation-let}
+
+\input{latex/equations/rhoMatrix-covariance-of-correlation}
+
+\input{latex/equations/rhoMatrix-covariance-of-correlation-where}
+
+\section*{Matrix Notation}
+
+\input{latex/equations/rhoMatrix-sigmacap-of-rhocap-let}
+
+\input{latex/equations/rhoMatrix-sigmacap-of-rhocap}
+
+\input{latex/equations/rhoMatrix-sigmacap-of-rhocap-where}
+
+\newpage
+
+\section*{Examples}
+
+<<echo = FALSE>>=
+data(iris)
+sigmacap_i <- cov(iris[, 1:4])
+rhocap_i <- cor(iris[, 1:4])
+sd_i <- sqrt(diag(sigmacap_i))
+@
+
+<<echo = FALSE>>=
+variable <- c(
+  "\\texttt{sigmacap\\_i}",
+  "\\texttt{rhocap\\_i}",
+  "\\texttt{sd\\_i}"
+)
+symbol <- c(
+  "$\\boldsymbol{\\Sigma}$",
+  "$\\mathbf{P}$",
+  "$\\boldsymbol{\\sigma}$"
+)
+description <- c(
+  "covariance matrix",
+  "correlation matrix",
+  "standard deviation vector"
+)
+knitr::kable(
+  cbind(
+    variable,
+    symbol,
+    description
+  ),
+  col.names = c(
+    "Variable",
+    "Symbol",
+    "Description"
+  ),
+  escape = FALSE,
+  caption = "Variables",
+  booktabs = TRUE
+)
+@
+
+\begin{equation}
+    \boldsymbol{\Sigma}
+    =
+    \left(
+    \begin{array}{cccc}
+        \Sexpr{sigmacap_i[1, 1]} & \Sexpr{sigmacap_i[1, 2]} & \Sexpr{sigmacap_i[1, 3]} & \Sexpr{sigmacap_i[1, 4]} \\
+        \Sexpr{sigmacap_i[2, 1]} & \Sexpr{sigmacap_i[2, 2]} & \Sexpr{sigmacap_i[2, 3]} & \Sexpr{sigmacap_i[2, 4]} \\
+        \Sexpr{sigmacap_i[3, 1]} & \Sexpr{sigmacap_i[3, 2]} & \Sexpr{sigmacap_i[3, 3]} & \Sexpr{sigmacap_i[3, 4]} \\
+        \Sexpr{sigmacap_i[4, 1]} & \Sexpr{sigmacap_i[4, 2]} & \Sexpr{sigmacap_i[4, 3]} & \Sexpr{sigmacap_i[4, 4]} \\
+    \end{array}
+    \right)
+\end{equation}
+
+\begin{equation}
+    \mathbf{P}
+    =
+    \left(
+    \begin{array}{cccc}
+        \Sexpr{rhocap_i[1, 1]} & \Sexpr{rhocap_i[1, 2]} & \Sexpr{rhocap_i[1, 3]} & \Sexpr{rhocap_i[1, 4]} \\
+        \Sexpr{rhocap_i[2, 1]} & \Sexpr{rhocap_i[2, 2]} & \Sexpr{rhocap_i[2, 3]} & \Sexpr{rhocap_i[2, 4]} \\
+        \Sexpr{rhocap_i[3, 1]} & \Sexpr{rhocap_i[3, 2]} & \Sexpr{rhocap_i[3, 3]} & \Sexpr{rhocap_i[3, 4]} \\
+        \Sexpr{rhocap_i[4, 1]} & \Sexpr{rhocap_i[4, 2]} & \Sexpr{rhocap_i[4, 3]} & \Sexpr{rhocap_i[4, 4]} \\
+    \end{array}
+    \right)
+\end{equation}
+
+<<eval = FALSE>>=
+library(rhoMatrix)
+@
+
+<<>>=
+sigmacap_i
+sd_i
+rhocap_i
+@
+
+\section*{Covariance Matrix from Correlation Matrix}
+
+<<>>=
+cov_of_cor(
+  rhocap_i,
+  sd = sd_i
+)
+@
+
+\end{document}

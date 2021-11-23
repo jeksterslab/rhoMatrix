@@ -1,0 +1,23 @@
+---
+title: "rhoMatrix: Correlation Matrix"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{rhoMatrix: Correlation Matrix}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Description
+
+A collection of functions
+related to the correlation matrix
+$
+\mathbf{P}
+$.
