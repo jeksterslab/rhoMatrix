@@ -24,10 +24,7 @@ knitr::opts_chunk$set(
 ## Description
 
 A collection of functions
-related to the correlation matrix
-$
-\mathbf{P}
-$.
+related to the correlation matrix.
 
 ## Installation
 
