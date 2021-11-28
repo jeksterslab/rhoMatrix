@@ -1,5 +1,5 @@
 #' @rdname .check_rhocap
-#' @export
+#' @noRd
 .check_cor <- function(x,
                        return_k = FALSE) {
   .check_rhocap(

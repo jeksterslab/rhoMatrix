@@ -8,7 +8,7 @@
 #'   Inverse of the standard deviation vector.
 #' @family Correlation Functions
 #' @keywords rhoMatrix correlation dot
-#' @export
+#' @noRd
 .rhocap_of_sigmacap <- function(x,
                                 q) {
   q * x * rep(

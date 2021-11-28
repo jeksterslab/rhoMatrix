@@ -8,10 +8,13 @@
 #'   Return the dimension of the covariance matrix.
 #' @family Correlation Functions
 #' @keywords rhoMatrix correlation check
-#' @export
+#' @noRd
 .check_rhocap <- function(x,
                           return_k = FALSE) {
-  .check_sym(x)
+  stopifnot(
+    is.matrix(x),
+    x == t(x)
+  )
   stopifnot(
     all(
       diag(x) == 1

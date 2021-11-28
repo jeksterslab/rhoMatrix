@@ -19,10 +19,6 @@ Correlation Matrix from Covariance Matrix
 }
 \seealso{
 Other Correlation Functions: 
-\code{\link{.check_rhocap}()},
-\code{\link{.check_vechsrhocap}()},
-\code{\link{.rhocap_of_sigmacap}()},
-\code{\link{.sigmacap_of_rhocap}()},
 \code{\link{cov_of_cor}()}
 }
 \author{

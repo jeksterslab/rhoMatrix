@@ -1,5 +1,5 @@
 #' @rdname .check_vechsrhocap
-#' @export
+#' @noRd
 .check_vechscor <- function(x,
                             return_k = FALSE) {
   .check_vechsrhocap(

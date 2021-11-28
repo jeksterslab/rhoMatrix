@@ -10,7 +10,10 @@
 #' @noRd
 .check_sigmacap <- function(x,
                             return_k = FALSE) {
-  .check_sym(x)
+  stopifnot(
+    is.matrix(x),
+    x == t(x)
+  )
   stopifnot(
     all(
       diag(x) > 0

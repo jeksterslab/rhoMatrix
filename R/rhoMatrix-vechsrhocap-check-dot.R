@@ -9,7 +9,7 @@
 #'   Return the dimension of the covariance matrix.
 #' @family Correlation Functions
 #' @keywords rhoMatrix correlation check
-#' @export
+#' @noRd
 .check_vechsrhocap <- function(x,
                                return_k = FALSE) {
   k <- .check_vechs(

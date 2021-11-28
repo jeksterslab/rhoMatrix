@@ -8,7 +8,7 @@
 #'   Vector of standard deviations.
 #' @family Correlation Functions
 #' @keywords rhoMatrix correlation dot
-#' @export
+#' @noRd
 .sigmacap_of_rhocap <- function(x,
                                 sd) {
   sd * x * rep(
